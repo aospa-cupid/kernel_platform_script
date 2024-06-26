@@ -10,9 +10,9 @@ usage() {
 # Function to prompt the user for LTO choice
 choose_lto() {
   while true; do
-    read -p "Choose LTO type (thin/full): " LTO_CHOICE
+    read -p "Choose LTO type (none/thin/full): " LTO_CHOICE
     case $LTO_CHOICE in
-      thin|full)
+      none|thin|full)
         export LTO=$LTO_CHOICE
         break
         ;;
