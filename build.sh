@@ -1,11 +1,14 @@
 #!/bin/bash
 
-if [[ -z "${1}" ]]; then
-    echo "No device specified."
-    exit
+if [[ "$1" = taro ]]; then
+    echo "No device specified, building platform only"
+    unset TARGET_PRODUCT_NAME
+    export TARGET_BOARD_PLATFORM="${1}"
+else
+    export TARGET_BOARD_PLATFORM="${1}"
+    export TARGET_PRODUCT_NAME="${1}"
 fi
 
-export TARGET_BOARD_PLATFORM="${1}"
 export TARGET_BUILD_VARIANT=user
 
 export ANDROID_BUILD_TOP=$(pwd)
